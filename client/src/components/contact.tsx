@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Mail, Phone, Clock, Check } from "lucide-react";
+import { Mail, Phone, Clock, Check, MapPin, Send } from "lucide-react";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -55,21 +55,31 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email",
+      title: "Email Us",
       content: "hello@nexora.digital",
-      gradient: "from-indigo-500 to-purple-500"
+      description: "Drop us a line anytime",
+      gradient: "from-blue-500 to-indigo-600"
     },
     {
       icon: Phone,
-      title: "Phone",
+      title: "Call Us",
       content: "+1 (555) 123-4567",
-      gradient: "from-cyan-500 to-emerald-500"
+      description: "Mon-Fri 9AM-6PM EST",
+      gradient: "from-emerald-500 to-teal-600"
+    },
+    {
+      icon: MapPin,
+      title: "Visit Us",
+      content: "New York, NY",
+      description: "Remote-first, globally available",
+      gradient: "from-purple-500 to-violet-600"
     },
     {
       icon: Clock,
-      title: "Response Time",
+      title: "Quick Response",
       content: "Within 24 hours",
-      gradient: "from-pink-500 to-rose-500"
+      description: "Usually much faster",
+      gradient: "from-orange-500 to-amber-600"
     }
   ];
 
@@ -81,25 +91,8 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-900 text-white relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900" />
-      
-      {/* Animated background shapes */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{ y: [-20, 0, -20] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-full filter blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [-20, 0, -20] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-cyan-600/20 to-pink-600/20 rounded-full filter blur-3xl"
-        />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,52 +100,54 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-space font-bold mb-6">
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Ready to Grow Your Business?
+          <h2 className="text-4xl md:text-6xl font-poppins font-bold mb-6">
+            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Let's Start Your Project
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Let's discuss your project and see how we can help you achieve your digital goals
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+            Ready to transform your business? Get in touch and let's discuss how we can help you achieve your digital goals.
           </p>
         </motion.div>
+
+        {/* Contact Info Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {contactInfo.map((info, index) => {
+            const Icon = info.icon;
+            return (
+              <motion.div
+                key={info.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className={`w-14 h-14 bg-gradient-to-r ${info.gradient} rounded-xl flex items-center justify-center mx-auto mb-4`}
+                >
+                  <Icon className="w-7 h-7 text-white" />
+                </motion.div>
+                <h4 className="font-poppins font-semibold text-gray-900 mb-2">{info.title}</h4>
+                <p className="text-gray-800 font-medium mb-1">{info.content}</p>
+                <p className="text-gray-500 text-sm font-inter">{info.description}</p>
+              </motion.div>
+            );
+          })}
+        </div>
         
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Contact Information */}
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100"
           >
-            <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
-            
-            <div className="space-y-6 mb-12">
-              {contactInfo.map((info, index) => {
-                const Icon = info.icon;
-                return (
-                  <motion.div
-                    key={info.title}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start space-x-4"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className={`w-12 h-12 bg-gradient-to-r ${info.gradient} rounded-lg flex items-center justify-center flex-shrink-0`}
-                    >
-                      <Icon className="w-6 h-6 text-white" />
-                    </motion.div>
-                    <div>
-                      <h4 className="font-semibold mb-1">{info.title}</h4>
-                      <p className="text-gray-300">{info.content}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+            <h3 className="text-2xl font-poppins font-semibold mb-6 text-gray-900">Send us a message</h3>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}

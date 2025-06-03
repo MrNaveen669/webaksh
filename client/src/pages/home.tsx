@@ -8,6 +8,7 @@ import About from "@/components/about";
 import Testimonials from "@/components/testimonials";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
+import WhatsAppFloat from "@/components/whatsapp-float";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +33,7 @@ export default function Home() {
         <Testimonials />
         <Contact />
         <Footer />
+        <WhatsAppFloat />
       </div>
     </>
   );
