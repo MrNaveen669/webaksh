@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Smartphone, TrendingUp, Palette, MessageSquare, Lightbulb } from "lucide-react";
+import { Code, Smartphone, TrendingUp, Palette, MessageSquare } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -7,60 +7,56 @@ export default function Services() {
       icon: Code,
       title: "Website Development",
       description: "Custom, responsive websites built with modern technologies to showcase your brand and convert visitors into customers.",
-      gradient: "from-indigo-50 to-purple-50",
-      iconGradient: "from-indigo-500 to-purple-500",
-      tags: ["React", "Next.js", "WordPress"],
-      tagColors: ["bg-indigo-100 text-indigo-700", "bg-purple-100 text-purple-700", "bg-blue-100 text-blue-700"]
+      gradient: "from-blue-500 to-indigo-600",
+      bgGradient: "from-blue-50/50 to-indigo-50/50",
+      hoverGradient: "from-blue-600 to-indigo-700",
+      iconColor: "text-blue-600",
+      delay: 0.1
     },
     {
       icon: Smartphone,
-      title: "Android App Development",
+      title: "Android App Development", 
       description: "Native Android applications that provide seamless user experiences and help you reach customers on mobile devices.",
-      gradient: "from-cyan-50 to-emerald-50",
-      iconGradient: "from-cyan-500 to-emerald-500",
-      tags: ["Kotlin", "Java", "Flutter"],
-      tagColors: ["bg-cyan-100 text-cyan-700", "bg-emerald-100 text-emerald-700", "bg-teal-100 text-teal-700"]
-    },
-    {
-      icon: TrendingUp,
-      title: "Digital Marketing",
-      description: "Comprehensive digital marketing strategies including SEO, PPC, content marketing, and analytics to grow your online presence.",
-      gradient: "from-pink-50 to-rose-50",
-      iconGradient: "from-pink-500 to-rose-500",
-      tags: ["SEO", "PPC", "Analytics"],
-      tagColors: ["bg-pink-100 text-pink-700", "bg-rose-100 text-rose-700", "bg-red-100 text-red-700"]
-    },
-    {
-      icon: Palette,
-      title: "Branding",
-      description: "Complete brand identity solutions including logo design, brand guidelines, and visual identity to make your business memorable.",
-      gradient: "from-amber-50 to-orange-50",
-      iconGradient: "from-amber-500 to-orange-500",
-      tags: ["Logo Design", "Brand Guidelines", "Visual Identity"],
-      tagColors: ["bg-amber-100 text-amber-700", "bg-orange-100 text-orange-700", "bg-yellow-100 text-yellow-700"]
+      gradient: "from-green-500 to-emerald-600",
+      bgGradient: "from-green-50/50 to-emerald-50/50",
+      hoverGradient: "from-green-600 to-emerald-700",
+      iconColor: "text-green-600",
+      delay: 0.2
     },
     {
       icon: MessageSquare,
       title: "Social Media Management",
       description: "Strategic social media management to build your online community and engage with your audience across all platforms.",
-      gradient: "from-violet-50 to-fuchsia-50",
-      iconGradient: "from-violet-500 to-fuchsia-500",
-      tags: ["Content Strategy", "Community Management", "Analytics"],
-      tagColors: ["bg-violet-100 text-violet-700", "bg-fuchsia-100 text-fuchsia-700", "bg-purple-100 text-purple-700"]
+      gradient: "from-pink-500 to-rose-600",
+      bgGradient: "from-pink-50/50 to-rose-50/50", 
+      hoverGradient: "from-pink-600 to-rose-700",
+      iconColor: "text-pink-600",
+      delay: 0.3
     },
     {
-      icon: Lightbulb,
-      title: "Digital Consulting",
-      description: "Expert guidance and strategic planning to help you navigate the digital landscape and make informed technology decisions.",
-      gradient: "from-emerald-50 to-teal-50",
-      iconGradient: "from-emerald-500 to-teal-500",
-      tags: ["Strategy", "Planning", "Optimization"],
-      tagColors: ["bg-emerald-100 text-emerald-700", "bg-teal-100 text-teal-700", "bg-green-100 text-green-700"]
+      icon: TrendingUp,
+      title: "Digital Marketing (SEO, SEM)",
+      description: "Comprehensive digital marketing strategies including SEO, SEM, content marketing, and analytics to grow your online presence.",
+      gradient: "from-purple-500 to-violet-600",
+      bgGradient: "from-purple-50/50 to-violet-50/50",
+      hoverGradient: "from-purple-600 to-violet-700", 
+      iconColor: "text-purple-600",
+      delay: 0.4
+    },
+    {
+      icon: Palette,
+      title: "Branding & Visual Identity",
+      description: "Complete brand identity solutions including logo design, brand guidelines, and visual identity to make your business memorable.",
+      gradient: "from-orange-500 to-amber-600",
+      bgGradient: "from-orange-50/50 to-amber-50/50",
+      hoverGradient: "from-orange-600 to-amber-700",
+      iconColor: "text-orange-600", 
+      delay: 0.5
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -69,51 +65,88 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-space font-bold mb-6">
-            <span className="gradient-text">Our Services</span>
+          <h2 className="text-4xl md:text-6xl font-poppins font-bold mb-6">
+            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Our Services
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We provide comprehensive digital solutions to help your business thrive in the online world
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+            Comprehensive digital solutions designed to elevate your business and drive meaningful growth
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: service.delay,
+                  type: "spring",
+                  stiffness: 100
+                }}
                 viewport={{ once: true }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className={`group bg-gradient-to-br ${service.gradient} p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100`}
+                whileHover={{ 
+                  y: -12, 
+                  scale: 1.03,
+                  transition: { duration: 0.3 }
+                }}
+                className="group relative"
               >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                  className={`w-16 h-16 bg-gradient-to-r ${service.iconGradient} rounded-2xl flex items-center justify-center mb-6`}
-                >
-                  <Icon className="w-8 h-8 text-white" />
-                </motion.div>
+                {/* Card Background with Gradient Border Effect */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`} />
                 
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {service.tags.map((tag, tagIndex) => (
-                    <motion.span
-                      key={tag}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: (index * 0.1) + (tagIndex * 0.05) }}
-                      viewport={{ once: true }}
-                      className={`px-3 py-1 rounded-full text-sm font-medium ${service.tagColors[tagIndex]}`}
+                {/* Main Card */}
+                <div className={`relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100/50 group-hover:border-transparent`}>
+                  {/* Icon Container */}
+                  <motion.div
+                    whileHover={{ 
+                      scale: 1.1, 
+                      rotate: [0, -5, 5, 0],
+                      transition: { duration: 0.5 }
+                    }}
+                    className="relative mb-6"
+                  >
+                    <div className={`w-20 h-20 bg-gradient-to-br ${service.bgGradient} rounded-2xl flex items-center justify-center relative overflow-hidden`}>
+                      <motion.div
+                        whileHover={{ scale: 1.2 }}
+                        transition={{ duration: 0.3 }}
+                        className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center shadow-lg`}
+                      >
+                        <Icon className="w-8 h-8 text-white" />
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                  
+                  {/* Content */}
+                  <h3 className="text-2xl font-poppins font-semibold mb-4 text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 font-inter leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    {service.description}
+                  </p>
+                  
+                  {/* CTA Button */}
+                  <motion.div
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-center"
+                  >
+                    <motion.button
+                      whileHover={{ 
+                        scale: 1.05,
+                        backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`,
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`px-6 py-3 bg-gradient-to-r ${service.gradient} text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm`}
                     >
-                      {tag}
-                    </motion.span>
-                  ))}
+                      Learn More
+                    </motion.button>
+                  </motion.div>
                 </div>
               </motion.div>
             );
