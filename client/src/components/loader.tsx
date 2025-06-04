@@ -30,7 +30,7 @@ export default function Loader() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-4xl md:text-6xl font-space font-bold text-white mb-4"
         >
-          Nexora
+          WebAksh
         </motion.h1>
         
         <motion.p

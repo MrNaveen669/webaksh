@@ -46,7 +46,7 @@ export default function Footer() {
               onClick={() => scrollToSection("home")}
             >
               <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                Nexora
+                WebAksh
               </span>
             </motion.h3>
             <p className="text-gray-400 mb-6 max-w-md">
@@ -166,7 +166,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
         >
-          <p>&copy; 2024 Nexora Digital Agency. All rights reserved.</p>
+          <p>&copy; 2025 WebAksh Digital Agency. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

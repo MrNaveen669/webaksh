@@ -48,7 +48,7 @@ export default function Navigation() {
             onClick={() => scrollToSection("home")}
           >
             <h1 className="text-2xl font-space font-bold gradient-text">
-              Nexora
+              WebAksh
             </h1>
           </motion.div>
           

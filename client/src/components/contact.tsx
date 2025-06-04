@@ -56,21 +56,21 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email Us",
-      content: "hello@nexora.digital",
+      content: "",
       description: "Drop us a line anytime",
       gradient: "from-blue-500 to-indigo-600"
     },
     {
       icon: Phone,
       title: "Call Us",
-      content: "+1 (555) 123-4567",
+      content: "+91 7049586798, 9131456765",
       description: "Mon-Fri 9AM-6PM EST",
       gradient: "from-emerald-500 to-teal-600"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      content: "New York, NY",
+      content: "Sundar Nagar, Near by Raipura chowk",
       description: "Remote-first, globally available",
       gradient: "from-purple-500 to-violet-600"
     },

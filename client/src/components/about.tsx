@@ -63,7 +63,7 @@ export default function About() {
         >
           <h2 className="text-4xl md:text-6xl font-poppins font-bold mb-6">
             <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              About Nexora
+              About WebAksh
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto font-inter leading-relaxed">
@@ -80,7 +80,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h3 className="text-3xl font-poppins font-semibold mb-8 text-gray-900">
-              Why Choose Nexora?
+              Why Choose WebAksh?
             </h3>
             
             <div className="grid md:grid-cols-2 gap-6 mb-8">
