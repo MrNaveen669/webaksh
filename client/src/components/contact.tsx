@@ -191,12 +191,12 @@ export default function Contact() {
                     name="firstName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-white">First Name</FormLabel>
+                        <FormLabel className="text-black">First Name</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
-                            placeholder="John"
-                            className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500"
+                            placeholder="Enter your first name"
+                            className="bg-white/10 border-white/20 text-b placeholder-gray-400 focus:ring-indigo-500"
                           />
                         </FormControl>
                         <FormMessage />
@@ -208,11 +208,11 @@ export default function Contact() {
                     name="lastName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-white">Last Name</FormLabel>
+                        <FormLabel className="text-black">Last Name</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
-                            placeholder="Doe"
+                            placeholder="Enter your last name"
                             className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500"
                           />
                         </FormControl>
@@ -227,13 +227,13 @@ export default function Contact() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white">Email</FormLabel>
+                      <FormLabel className="text-black">Email</FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           type="email"
-                          placeholder="john@example.com"
-                          className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500"
+                          placeholder="john@gmail.com"
+                          className="bg-white/10 border-white/20 text-black placeholder-gray-400 focus:ring-indigo-500"
                         />
                       </FormControl>
                       <FormMessage />
@@ -246,12 +246,12 @@ export default function Contact() {
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white">Company</FormLabel>
+                      <FormLabel className="text-black">Company</FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           placeholder="Your Company"
-                          className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500"
+                          className="bg-white/10 border-white/20 text-black placeholder-gray-400 focus:ring-indigo-500"
                         />
                       </FormControl>
                       <FormMessage />
@@ -264,10 +264,10 @@ export default function Contact() {
                   name="service"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white">Service Interested In</FormLabel>
+                      <FormLabel className="text-black">Service Interested In</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                          <SelectTrigger className="bg-white/10 border-white/20 text-black placeholder-gray-400 focus:ring-indigo-500">
                             <SelectValue placeholder="Select a service" />
                           </SelectTrigger>
                         </FormControl>
@@ -275,9 +275,10 @@ export default function Contact() {
                           <SelectItem value="website">Website Development</SelectItem>
                           <SelectItem value="app">Mobile App Development</SelectItem>
                           <SelectItem value="marketing">Digital Marketing</SelectItem>
-                          <SelectItem value="branding">Branding</SelectItem>
+                          <SelectItem value="branding">Server Management</SelectItem>
                           <SelectItem value="social">Social Media Management</SelectItem>
-                          <SelectItem value="consulting">Digital Consulting</SelectItem>
+                          <SelectItem value="consulting">Video Editing</SelectItem>
+                          <SelectItem value="consulting">Data Recovery</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -290,13 +291,13 @@ export default function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white">Message</FormLabel>
+                      <FormLabel className="text-black">Message</FormLabel>
                       <FormControl>
                         <Textarea
                           {...field}
                           rows={4}
                           placeholder="Tell us about your project..."
-                          className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500 resize-none"
+                          className="bg-white/10 border-white/20 text-black placeholder-gray-400 focus:ring-indigo-500 resize-none"
                         />
                       </FormControl>
                       <FormMessage />
