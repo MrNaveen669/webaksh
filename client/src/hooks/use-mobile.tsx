@@ -1,19 +1,44 @@
-import * as React from "react"
+import * as React from "react";
 
-const MOBILE_BREAKPOINT = 768
+const MOBILE_BREAKPOINT = 768;
+const TABLET_BREAKPOINT = 1024;
 
-export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
+export function useDeviceType() {
+  const [device, setDevice] = React.useState<'mobile' | 'tablet' | 'desktop'>(() => {
+    const width = window.innerWidth;
+    if (width < MOBILE_BREAKPOINT) return 'mobile';
+    if (width < TABLET_BREAKPOINT) return 'tablet';
+    return 'desktop';
+  });
 
   React.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
-    const onChange = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    }
-    mql.addEventListener("change", onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    return () => mql.removeEventListener("change", onChange)
-  }, [])
+    let timeoutId: ReturnType<typeof setTimeout>;
 
-  return !!isMobile
+    const onResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const width = window.innerWidth;
+        if (width < MOBILE_BREAKPOINT) setDevice('mobile');
+        else if (width < TABLET_BREAKPOINT) setDevice('tablet');
+        else setDevice('desktop');
+      }, 150);
+    };
+
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  return device;
+}
+export function useIsMobile() {
+  const deviceType = useDeviceType();
+  return deviceType === 'mobile';
+}
+export function useIsTablet() {
+  const deviceType = useDeviceType();
+  return deviceType === 'tablet';
 }

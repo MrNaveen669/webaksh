@@ -13,7 +13,10 @@ import WhatsAppFloat from "@/components/whatsapp-float";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+   useEffect(() => {
+    // ✅ Set tab title dynamically in Vite/React
+    document.title = "WebAksh | Raipur CG";
+
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -23,6 +26,7 @@ export default function Home() {
 
   return (
     <>
+    
       {isLoading && <Loader />}
       <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Navigation />
