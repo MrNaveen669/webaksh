@@ -32,25 +32,25 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-20 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-space font-bold leading-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-space font-bold leading-tight mb-6"
             >
               <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-                We Help Small
+                One Click 
               </span>
               <br />
               <span className="text-gray-900">
-                Businesses Go
+                Infinite Growth
               </span>
               <br />
               <span className="bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
-                Big Online
+                Your Digital Future Starts Here
               </span>
             </motion.h1>
             
@@ -60,7 +60,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl"
             >
-              Website, Mobile Apps, Digital Growth & Beyond. Transform your vision into digital success with our expert team.
+              "Your vision deserves more than code — it deserves a digital legacy. Let’s build it together."  
             </motion.p>
             
             <motion.div
@@ -94,11 +94,11 @@ export default function Hero() {
               className="mt-12 flex items-center justify-center lg:justify-start space-x-8"
             >
               <div className="text-center">
-                <div className="text-3xl font-bold text-indigo-600">50+</div>
+                <div className="text-3xl font-bold text-indigo-600">4+</div>
                 <div className="text-sm text-gray-600">Projects Completed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">100%</div>
+                <div className="text-3xl font-bold text-purple-600">95%</div>
                 <div className="text-sm text-gray-600">Client Satisfaction</div>
               </div>
               <div className="text-center">

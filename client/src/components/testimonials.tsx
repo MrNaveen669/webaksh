@@ -4,24 +4,24 @@ import { Star } from "lucide-react";
 export default function Testimonials() {
   const testimonials = [
     {
-      content: "Nexora transformed our outdated website into a modern, conversion-focused platform. Our online sales increased by 200% within three months!",
-      author: "Sarah Johnson",
-      role: "CEO, TechGear Solutions",
-      avatar: "S",
+      content: "Opticlair revolutionized our online presence! Their sleek e-commerce platform made it incredibly easy for our customers to browse and purchase. We've seen a 150% boost in monthly orders and built stronger customer trust—all thanks to their intuitive design and seamless user experience.",
+      author: "Tukeshwar Sahu",
+      role: "Owner, Opticlair",
+      avatar: "T",
       gradient: "from-indigo-500 to-purple-500"
     },
     {
-      content: "The mobile app they developed for our fitness studio has been a game-changer. User engagement is through the roof and retention rates have improved significantly.",
-      author: "Mike Rodriguez",
-      role: "Owner, FitLife Studio",
-      avatar: "M",
+      content: "Bajaj Group has consistently delivered excellence across every sector they operate in. From their state-of-the-art grain facilities to cutting-edge real estate projects and reliable transport services, their commitment to quality and innovation is unmatched. Partnering with Bajaj Group has been a game-changer for our operations.  ",
+      author: "Subham Bajaj",
+      role: "Founder, Bajaj Groups",
+      avatar: "S",
       gradient: "from-cyan-500 to-emerald-500"
     },
     {
-      content: "Professional, creative, and incredibly responsive. They delivered exactly what we envisioned for our restaurant's brand identity and website.",
-      author: "Elena Marchetti",
-      role: "Owner, Bella Vista Restaurant",
-      avatar: "E",
+      content: "Harbaras.com has revolutionized how we ensure product authenticity. Our customers now feel more confident knowing they can verify their purchase instantly. It’s a powerful tool in the fight against counterfeit goods and has significantly boosted our brand’s trust and credibility.",
+      author: "Yash",
+      role: "Owner",
+      avatar: "Y",  
       gradient: "from-pink-500 to-rose-500"
     }
   ];

@@ -11,10 +11,12 @@ export default function Footer() {
 
   const services = [
     "Website Development",
-    "Mobile Apps", 
+    "Mobile Apps Development", 
     "Digital Marketing",
-    "Branding",
-    "Social Media"
+    "Server Management",
+    "Social Media",
+    "Data Recovery",
+    "Video Editing"
   ];
 
   const company = [

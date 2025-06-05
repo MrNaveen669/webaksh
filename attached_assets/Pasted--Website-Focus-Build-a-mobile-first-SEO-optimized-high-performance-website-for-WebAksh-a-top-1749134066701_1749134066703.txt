@@ -1,0 +1,49 @@
+*Website Focus:*
+Build a mobile-first, SEO-optimized, high-performance website for “WebAksh” — a top-rated software & IT company based in Raipur, Chhattisgarh.
+
+*Mobile-First Design:*
+- Prioritize mobile screen sizes first (max-width: 768px), then scale upward
+- No horizontal scroll or whitespace near toggles, navbar, or content
+- Touch-friendly spacing for buttons, links, and toggles
+- Sticky navbar with hamburger menu on small screens
+- Responsive grid system for services, testimonials, and projects
+
+*Performance Optimization:*
+- Use compressed, lazy-loaded images (WebP or AVIF)
+- Minimize unused JavaScript and CSS
+- Add a service worker for fast loading (PWA-ready)
+- Implement caching headers and gzip/Brotli compression
+- Ensure CLS, FCP, LCP, and TTI scores are optimized (Core Web Vitals ready)
+
+*SEO Strategy:*
+- Use the following SEO content structure and metadata:
+   - *Title Tag:* Top Software & IT Company in Raipur | WebAksh
+   - *Meta Description:* WebAksh is Raipur’s trusted software development and IT company offering web, app, and marketing solutions.
+   - *Keywords:* Software Company Raipur, IT Company Chhattisgarh, WebAksh Raipur, App Development Raipur, SEO Raipur
+- Embed Open Graph and Twitter meta tags for better sharing
+- Add Structured Data (LocalBusiness schema with address, name, image, and sameAs links)
+- Canonical URLs to prevent content duplication
+
+*Target Ranking for Keywords:*
+Optimize homepage, H1, and internal links to rank for:
+1. Top Software company in Raipur / Chhattisgarh
+2. WebAksh Raipur
+3. WebAksh software company
+4. WebAksh IT company
+
+*Technical SEO Notes:*
+- Use semantic HTML5 structure: header, nav, section, article, footer
+- Ensure H1 appears only once and reflects main keyword
+- Use internal links with keyword-rich anchor text (e.g., “Explore our Raipur-based software services”)
+- Sitemap.xml and robots.txt must be auto-generated and submitted to Google Search Console
+- Include Alt text on all images with keywords
+- Ensure fast mobile speed score (Lighthouse/Pagespeed > 90)
+
+*Suggested Headings on Homepage:*
+- “Best Software Company in Raipur for Web & App Development”
+- “Your Trusted IT Partner in Chhattisgarh – WebAksh”
+- “Why WebAksh is Raipur’s #1 Choice for Startups and Small Businesses”
+
+*Floating Elements:*
+- Add WhatsApp chat and AI bot on mobile with non-intrusive floating button
+- Auto-open chatbot with greeting: “Hi! Looking for the best IT solution in Raipur?”

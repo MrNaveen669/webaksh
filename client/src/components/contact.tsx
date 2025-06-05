@@ -56,7 +56,7 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email Us",
-      content: "",
+      content: "contact@webaksh.com",
       description: "Drop us a line anytime",
       gradient: "from-blue-500 to-indigo-600"
     },
@@ -156,7 +156,7 @@ export default function Contact() {
               viewport={{ once: true }}
               className="bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10"
             >
-              <h4 className="font-semibold mb-4">Why Choose Nexora?</h4>
+              <h4 className="font-semibold mb-4">Why Choose Webaksh  ?</h4>
               <ul className="space-y-2 text-gray-300">
                 {benefits.map((benefit, index) => (
                   <motion.li

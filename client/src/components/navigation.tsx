@@ -40,8 +40,8 @@ export default function Navigation() {
         isScrolled ? "bg-white/90 backdrop-blur-lg border-b border-white/20" : "bg-white/10 backdrop-blur-lg border-b border-white/20"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="flex justify-between items-center py-3 md:py-4">
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center cursor-pointer"
