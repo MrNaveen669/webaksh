@@ -19,9 +19,9 @@ export default function Testimonials() {
     },
     {
       content: "Harbaras.com has revolutionized how we ensure product authenticity. Our customers now feel more confident knowing they can verify their purchase instantly. It’s a powerful tool in the fight against counterfeit goods and has significantly boosted our brand’s trust and credibility.",
-      author: "Yash",
+      author: "Avinash",
       role: "Owner",
-      avatar: "Y",  
+      avatar: "A",  
       gradient: "from-pink-500 to-rose-500"
     }
   ];
