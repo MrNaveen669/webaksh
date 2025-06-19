@@ -163,9 +163,9 @@ export default function About() {
         {/* SEO Footer Text Block */}
         <div className="mt-12 text-center max-w-4xl mx-auto text-gray-500 text-sm leading-relaxed">
           <p>
-            WebAksh is trusted as one of the <strong>best software companies in Raipur</strong> offering services in web apps, SEO, and full-stack development. Clients often search for:
+            WebAksh is trusted as one of the <strong>best software companies in Raipur</strong> offering services in web apps, SEO, and full-stack development.
             <br />
-            <em>"top IT company in Raipur", "digital marketing Raipur", "software company Chhattisgarh", "MNC company Raipur"</em>
+            <em>"Top IT company in Raipur", "digital marketing Raipur", "software company Chhattisgarh", "startup company Raipur"</em>
           </p>
         </div>
       </div>
