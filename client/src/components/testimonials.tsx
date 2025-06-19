@@ -4,24 +4,24 @@ import { Star } from "lucide-react";
 export default function Testimonials() {
   const testimonials = [
     {
-      content: "Opticlair revolutionized our online presence! Their sleek e-commerce platform made it incredibly easy for our customers to browse and purchase. We've seen a 150% boost in monthly orders and built stronger customer trust—all thanks to their intuitive design and seamless user experience.",
+      content: "Big thanks to WebAksh for creating a beautiful and easy-to-use website for Opticlair! Our customers now find it much easier to shop, and we’ve seen a 150% increase in orders. It really helped us grow and build more trust.",
       author: "Tukeshwar Sahu",
       role: "Owner, Opticlair",
       avatar: "T",
       gradient: "from-indigo-500 to-purple-500"
     },
     {
-      content: "Bajaj Group has consistently delivered excellence across every sector they operate in. From their state-of-the-art grain facilities to cutting-edge real estate projects and reliable transport services, their commitment to quality and innovation is unmatched. Partnering with Bajaj Group has been a game-changer for our operations.  ",
+      content: "A big thank you to WebAksh for helping us take Bajaj Group’s online presence to the next level. Their clean, modern website design showcases our grain, real estate, and transport services perfectly. It’s made it easier for our customers to connect and trust our brand.  ",
       author: "Subham Bajaj",
       role: "Founder, Bajaj Groups",
       avatar: "S",
       gradient: "from-cyan-500 to-emerald-500"
     },
     {
-      content: "Harbaras.com has revolutionized how we ensure product authenticity. Our customers now feel more confident knowing they can verify their purchase instantly. It’s a powerful tool in the fight against counterfeit goods and has significantly boosted our brand’s trust and credibility.",
-      author: "Yash",
+      content: "We truly appreciate WebAksh for turning our vision into reality! The platform you developed for Harbaras.com has made it easy and quick for customers to verify products. Your work has played a key role in stopping fake goods and building real trust with every scan.",
+      author: "Avinash Pandey",
       role: "Owner",
-      avatar: "Y",  
+      avatar: "A",  
       gradient: "from-pink-500 to-rose-500"
     }
   ];
