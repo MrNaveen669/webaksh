@@ -13,14 +13,14 @@ import {
 export default function Services() {
   const services = [
     {
-      icon: Code,
-      title: "Website Development",
-      description: "Custom, responsive websites built with modern technologies to showcase your brand and convert visitors into customers.",
-      gradient: "from-blue-500 to-indigo-600",
-      bgGradient: "from-blue-50/50 to-indigo-50/50",
-      hoverGradient: "from-blue-600 to-indigo-700",
-      iconColor: "text-blue-600",
-      delay: 0.1
+      icon: Palette,
+      title: "Branding & Visual Identity",
+      description: "Complete brand identity solutions including logo design, brand guidelines, and visual identity to make your business memorable.",
+      gradient: "from-orange-500 to-amber-600",
+      bgGradient: "from-orange-50/50 to-amber-50/50",
+      hoverGradient: "from-orange-600 to-amber-700",
+      iconColor: "text-orange-600", 
+      delay: 0.5
     },
     {
       icon: Smartphone,
@@ -33,14 +33,24 @@ export default function Services() {
       delay: 0.2
     },
     {
-      icon: MessageSquare,
-      title: "Social Media Management",
-      description: "Strategic social media management to build your online community and engage with your audience across all platforms.",
-      gradient: "from-pink-500 to-rose-600",
-      bgGradient: "from-pink-50/50 to-rose-50/50", 
-      hoverGradient: "from-pink-600 to-rose-700",
-      iconColor: "text-pink-600",
-      delay: 0.3
+      icon: Code,
+      title: "Website Development",
+      description: "Custom, responsive websites built with modern technologies to showcase your brand and convert visitors into customers.",
+      gradient: "from-blue-500 to-indigo-600",
+      bgGradient: "from-blue-50/50 to-indigo-50/50",
+      hoverGradient: "from-blue-600 to-indigo-700",
+      iconColor: "text-blue-600",
+      delay: 0.1
+    },
+      {
+      icon: Server,
+      title: "Server Management",
+      description: "Reliable server setup, configuration, monitoring, and maintenance to ensure high performance and security for your web applications.",
+      gradient: "from-cyan-500 to-sky-600",
+      bgGradient: "from-cyan-50/50 to-sky-50/50",
+      hoverGradient: "from-cyan-600 to-sky-700",
+      iconColor: "text-cyan-600", 
+      delay: 0.6
     },
     {
       icon: TrendingUp,
@@ -52,36 +62,7 @@ export default function Services() {
       iconColor: "text-purple-600",
       delay: 0.4
     },
-    {
-      icon: Palette,
-      title: "Branding & Visual Identity",
-      description: "Complete brand identity solutions including logo design, brand guidelines, and visual identity to make your business memorable.",
-      gradient: "from-orange-500 to-amber-600",
-      bgGradient: "from-orange-50/50 to-amber-50/50",
-      hoverGradient: "from-orange-600 to-amber-700",
-      iconColor: "text-orange-600", 
-      delay: 0.5
-    },
-    {
-      icon: Server,
-      title: "Server Management",
-      description: "Reliable server setup, configuration, monitoring, and maintenance to ensure high performance and security for your web applications.",
-      gradient: "from-cyan-500 to-sky-600",
-      bgGradient: "from-cyan-50/50 to-sky-50/50",
-      hoverGradient: "from-cyan-600 to-sky-700",
-      iconColor: "text-cyan-600", 
-      delay: 0.6
-    },
-    {
-      icon: Video,
-      title: "Video Editing",
-      description: "High-quality video editing services including cutting, transitions, motion graphics, and effects tailored for content creators and businesses.",
-      gradient: "from-red-500 to-rose-600",
-      bgGradient: "from-red-50/50 to-rose-50/50",
-      hoverGradient: "from-red-600 to-rose-700",
-      iconColor: "text-red-600",
-      delay: 0.7
-    },
+
     {
       icon: HardDrive,
       title: "Data Recovery",
