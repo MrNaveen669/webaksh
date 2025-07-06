@@ -25,13 +25,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: path.resolve(__dirname, "dist/client"),
-    emptyOutDir: false, // prevent deleting backend build output
-  },
-  server: {
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
-    },
+    outDir: path.resolve(__dirname, "dist/client"), // ✅ Outputs only frontend here
+    emptyOutDir: false, // ✅ Prevents deleting backend build
   },
 });
