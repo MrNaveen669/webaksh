@@ -63,7 +63,7 @@ From websites to apps, and branding to marketing — we’re your digital growth
 
 ## 🔗 Live Preview
 
-🌐 Website: [https://opticlair.vercel.app](https://webaksh.com)  
+🌐 Website: [https://www.webaksh.com](https://webaksh.com)  
 📁 GitHub Repo: [MrNaveen669/webaksh](https://github.com/MrNaveen669/webaksh)
 
 ---
