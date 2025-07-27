@@ -1,0 +1,39 @@
+{
+  "include": ["client/src", "shared", "server"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "dist/client",
+    "dist/server",
+    "**/*.test.ts"
+  ],
+  "compilerOptions": {
+    "noEmit": true,
+    "incremental": false,
+
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    "jsx": "react-jsx",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./client/src/*"]
+    },
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
+    "types": ["node", "vite/client"],
+
+    "paths": {
+      "@/*": ["./client/src/*"],
+      "@shared/*": ["./shared/*"],
+      "@assets/*": ["./attached_assets/*"]
+    }
+  }
+}
+
