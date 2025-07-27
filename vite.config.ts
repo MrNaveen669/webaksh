@@ -15,6 +15,11 @@ export default defineConfig(async () => {
   return {
     root: path.resolve(__dirname, "client"),
     plugins,
+    build: {
+      outDir: path.resolve(__dirname, "dist/client"),
+      emptyOutDir: true,
+      sourcemap: true
+    },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "client", "src"),
