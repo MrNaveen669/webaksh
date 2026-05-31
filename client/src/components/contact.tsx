@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,11 +10,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Mail, Phone, Clock, Check, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+
+const contactInfo = [
+  { icon: Mail, title: "Email", value: "contact@webaksh.com", sub: "We reply within 24 hours", gradient: "from-blue-500 to-indigo-600", href: "mailto:contact@webaksh.com" },
+  { icon: Phone, title: "Phone", value: "+91 70495 86798", sub: "Mon–Fri, 9AM to 6PM", gradient: "from-green-500 to-emerald-600", href: "tel:+917049586798" },
+  { icon: MapPin, title: "Location", value: "Sundar Nagar, Raipur", sub: "Chhattisgarh, India 492001", gradient: "from-purple-500 to-violet-600", href: "https://maps.google.com/?q=Raipur,Chhattisgarh" },
+  { icon: Clock, title: "Response Time", value: "Within 24 Hours", sub: "Usually much faster", gradient: "from-orange-500 to-amber-600", href: null },
+];
 
 export default function Contact() {
   const { toast } = useToast();
-  
+
   const form = useForm<InsertContactSubmission>({
     resolver: zodResolver(insertContactSubmissionSchema),
     defaultValues: {
@@ -29,287 +35,214 @@ export default function Contact() {
   });
 
   const contactMutation = useMutation({
-    mutationFn: async (data: InsertContactSubmission) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
+    mutationFn: async (data: InsertContactSubmission) => apiRequest("POST", "/api/contact", data),
     onSuccess: () => {
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for your message! We'll get back to you within 24 hours.",
-      });
+      toast({ title: "Message Sent!", description: "We'll get back to you within 24 hours." });
       form.reset();
     },
     onError: (error: any) => {
-      toast({
-        title: "Error",
-        description: error.message || "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: error.message || "Something went wrong.", variant: "destructive" });
     },
   });
 
-  const onSubmit = (data: InsertContactSubmission) => {
-    contactMutation.mutate(data);
-  };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email Us",
-      content: "contact@webaksh.com",
-      description: "Drop us a line anytime",
-      gradient: "from-blue-500 to-indigo-600"
-    },
-    {
-      icon: Phone,
-      title: "Call Us",
-      content: "+91 7049586798, 9131456765",
-      description: "Mon-Fri 9AM-6PM EST",
-      gradient: "from-emerald-500 to-teal-600"
-    },
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      content: "Sundar Nagar, Near by Raipura chowk",
-      description: "Remote-first, globally available",
-      gradient: "from-purple-500 to-violet-600"
-    },
-    {
-      icon: Clock,
-      title: "Quick Response",
-      content: "Within 24 hours",
-      description: "Usually much faster",
-      gradient: "from-orange-500 to-amber-600"
-    }
-  ];
-
-  const benefits = [
-    "Direct communication with founders",
-    "Transparent pricing and timelines",
-    "100% satisfaction guarantee",
-    "Ongoing support and maintenance"
-  ];
-
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <section id="contact" className="section-pad bg-[#080814] relative overflow-hidden">
+      <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      {/* glow */}
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600 rounded-full blur-[140px] opacity-5 pointer-events-none" />
+
+      <div className="container-pad">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
-          <h2 className="text-4xl md:text-6xl font-poppins font-bold mb-6">
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Let's Start Your Project
-            </span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-sm text-indigo-300 font-medium mb-6 border border-indigo-500/20">
+            <MessageCircle className="w-3.5 h-3.5" />
+            Get In Touch
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-white mb-5">
+            Let's Build Something{" "}
+            <span className="gradient-text">Amazing Together</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
-            Ready to transform your business? Get in touch and let's discuss how we can help you achieve your digital goals.
+          <p className="text-white/50 max-w-2xl mx-auto text-base md:text-lg">
+            Ready to grow your business online? Drop us a message and we'll get back to you within 24 hours.
           </p>
         </motion.div>
 
         {/* Contact Info Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {contactInfo.map((info, index) => {
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {contactInfo.map((info, i) => {
             const Icon = info.icon;
+            const Tag = info.href ? "a" : "div";
             return (
               <motion.div
                 key={info.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
               >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className={`w-14 h-14 bg-gradient-to-r ${info.gradient} rounded-xl flex items-center justify-center mx-auto mb-4`}
+                <Tag
+                  {...(info.href ? { href: info.href, target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="glass-card rounded-2xl p-5 text-center block hover:border-indigo-500/30 transition-all duration-300 group"
                 >
-                  <Icon className="w-7 h-7 text-white" />
-                </motion.div>
-                <h4 className="font-poppins font-semibold text-gray-900 mb-2">{info.title}</h4>
-                <p className="text-gray-800 font-medium mb-1">{info.content}</p>
-                <p className="text-gray-500 text-sm font-inter">{info.description}</p>
+                  <div className={`w-12 h-12 bg-gradient-to-br ${info.gradient} rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 transition-transform duration-200`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-white/40 text-xs mb-1">{info.title}</div>
+                  <div className="text-white font-medium text-sm mb-1">{info.value}</div>
+                  <div className="text-white/35 text-xs">{info.sub}</div>
+                </Tag>
               </motion.div>
             );
           })}
         </div>
-        
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Contact Form */}
+
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          {/* Left — info */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100"
           >
-            <h3 className="text-2xl font-poppins font-semibold mb-6 text-gray-900">Send us a message</h3>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10"
+            <h3 className="text-white font-poppins font-bold text-2xl mb-4">
+              Why work with <span className="gradient-text">WebAksh</span>?
+            </h3>
+            <div className="space-y-4 mb-8">
+              {[
+                { title: "Direct founder access", desc: "You'll work directly with Yogeshwar & Naveen — no account managers or middlemen." },
+                { title: "Transparent pricing", desc: "No hidden fees. We share detailed quotes upfront so you always know what you're paying for." },
+                { title: "Regular updates", desc: "Weekly project updates via WhatsApp or email — you're always in the loop." },
+                { title: "Post-launch support", desc: "We don't disappear after delivery. Ongoing support is always available." },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  viewport={{ once: true }}
+                  className="flex items-start gap-3"
+                >
+                  <div className="w-5 h-5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-white text-xs font-bold">{i + 1}</span>
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold text-sm mb-0.5">{item.title}</div>
+                    <div className="text-white/45 text-sm">{item.desc}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* WhatsApp CTA */}
+            <a
+              href="https://wa.me/917049586798?text=Hi%20WebAksh%2C%20I%20want%20to%20discuss%20a%20project"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-4 bg-[#25D366]/10 border border-[#25D366]/30 rounded-2xl text-[#25D366] font-semibold hover:bg-[#25D366]/15 transition-all duration-200"
             >
-              <h4 className="font-semibold mb-4">Why Choose Webaksh  ?</h4>
-              <ul className="space-y-2 text-gray-300">
-                {benefits.map((benefit, index) => (
-                  <motion.li
-                    key={benefit}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.1 * index }}
-                    viewport={{ once: true }}
-                    className="flex items-center"
-                  >
-                    <Check className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                    {benefit}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+              <MessageCircle className="w-5 h-5" />
+              Chat on WhatsApp Instead
+            </a>
           </motion.div>
-          
-          {/* Contact Form */}
+
+          {/* Right — Form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white/10 rounded-3xl p-8 backdrop-blur-sm border border-white/20"
+            className="glass-strong rounded-3xl p-7"
           >
+            <h3 className="text-white font-poppins font-semibold text-xl mb-6">Send us a message</h3>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="firstName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">First Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="John"
-                            className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="lastName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">Last Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="Doe"
-                            className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+              <form onSubmit={form.handleSubmit((d) => contactMutation.mutate(d))} className="space-y-5">
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <FormField control={form.control} name="firstName" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white/60 text-xs uppercase tracking-wider">First Name</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="Raj" className="bg-white/5 border-white/10 text-white placeholder-white/25 focus:border-indigo-500 focus:ring-indigo-500/20 rounded-xl" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="lastName" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white/60 text-xs uppercase tracking-wider">Last Name</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="Sharma" className="bg-white/5 border-white/10 text-white placeholder-white/25 focus:border-indigo-500 focus:ring-indigo-500/20 rounded-xl" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
                 </div>
-                
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">Email</FormLabel>
+
+                <FormField control={form.control} name="email" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-white/60 text-xs uppercase tracking-wider">Email</FormLabel>
+                    <FormControl>
+                      <Input {...field} type="email" placeholder="raj@example.com" className="bg-white/5 border-white/10 text-white placeholder-white/25 focus:border-indigo-500 rounded-xl" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="company" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-white/60 text-xs uppercase tracking-wider">Company (Optional)</FormLabel>
+                    <FormControl>
+                      <Input {...field} placeholder="Your Company" className="bg-white/5 border-white/10 text-white placeholder-white/25 focus:border-indigo-500 rounded-xl" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="service" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-white/60 text-xs uppercase tracking-wider">Service Needed</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <Input
-                          {...field}
-                          type="email"
-                          placeholder="john@example.com"
-                          className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500"
-                        />
+                        <SelectTrigger className="bg-white/5 border-white/10 text-white rounded-xl">
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
                       </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="company"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">Company</FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder="Your Company"
-                          className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="service"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">Service Interested In</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger className="bg-white/10 border-white/20 text-white">
-                            <SelectValue placeholder="Select a service" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="website">Website Development</SelectItem>
-                          <SelectItem value="app">Mobile App Development</SelectItem>
-                          <SelectItem value="marketing">Digital Marketing</SelectItem>
-                          <SelectItem value="branding">Branding</SelectItem>
-                          <SelectItem value="social">Social Media Management</SelectItem>
-                          <SelectItem value="consulting">Digital Consulting</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">Message</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          {...field}
-                          rows={4}
-                          placeholder="Tell us about your project..."
-                          className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-indigo-500 resize-none"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
+                      <SelectContent className="bg-[#0d0d20] border-white/10">
+                        <SelectItem value="website">Website Development</SelectItem>
+                        <SelectItem value="app">Mobile App Development</SelectItem>
+                        <SelectItem value="ecommerce">E-Commerce Store</SelectItem>
+                        <SelectItem value="marketing">Digital Marketing & SEO</SelectItem>
+                        <SelectItem value="branding">Branding & Design</SelectItem>
+                        <SelectItem value="social">Social Media Management</SelectItem>
+                        <SelectItem value="automation">Business Automation</SelectItem>
+                        <SelectItem value="other">Other / Not Sure</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="message" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-white/60 text-xs uppercase tracking-wider">Tell Us About Your Project</FormLabel>
+                    <FormControl>
+                      <Textarea {...field} rows={4} placeholder="Describe your idea, goals, or any specific requirements..." className="bg-white/5 border-white/10 text-white placeholder-white/25 focus:border-indigo-500 rounded-xl resize-none" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button
                     type="submit"
                     disabled={contactMutation.isPending}
-                    className="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 transform transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all duration-300 flex items-center justify-center gap-2 h-auto"
                   >
+                    <Send className="w-4 h-4" />
                     {contactMutation.isPending ? "Sending..." : "Send Message"}
                   </Button>
                 </motion.div>

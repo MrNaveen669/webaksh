@@ -2,49 +2,21 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppFloat() {
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("Hi! I'm interested in your digital services. Can we discuss my project?");
-    const phoneNumber = "9131456765"; // Replace with actual WhatsApp business number
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
   return (
-    <motion.div
+    <motion.a
+      href="https://wa.me/917049586798?text=Hi%20WebAksh%2C%20I%27d%20like%20to%20discuss%20a%20project"
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 1 }}
-      className="fixed bottom-6 right-6 z-50"
+      transition={{ delay: 2, type: "spring", stiffness: 200 }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30"
+      aria-label="Chat on WhatsApp"
     >
-      <motion.button
-        onClick={handleWhatsAppClick}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="group relative"
-      >
-        {/* Pulse animation background */}
-        <motion.div
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute inset-0 bg-green-500 rounded-full opacity-20"
-        />
-        
-        {/* Main button */}
-        <div className="relative w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300">
-          <MessageCircle className="w-8 h-8 text-white" />
-        </div>
-        
-        {/* Tooltip */}
-        <motion.div
-          initial={{ opacity: 0, x: 10 }}
-          whileHover={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2 }}
-          className="absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          Chat with us on WhatsApp
-          <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900" />
-        </motion.div>
-      </motion.button>
-    </motion.div>
+      <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25" />
+      <MessageCircle className="w-7 h-7 text-white relative z-10 fill-white" />
+    </motion.a>
   );
 }
