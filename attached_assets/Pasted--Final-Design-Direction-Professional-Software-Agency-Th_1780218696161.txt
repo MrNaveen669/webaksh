@@ -1,0 +1,231 @@
+# Final Design Direction — Professional Software Agency
+
+The website is moving in the right direction.
+
+However, I want the visual style to feel more like a professional software company and less like a designer portfolio.
+
+Do not redesign the website again.
+
+Instead, refine it using senior-level UI/UX principles.
+
+---
+
+## Design Goal
+
+When a visitor opens WebAksh, they should immediately think:
+
+"These people build serious software products for real businesses."
+
+Not:
+
+"This looks like a creative design experiment."
+
+---
+
+## Reference Quality
+
+Use inspiration from:
+
+* Stripe
+* Vercel
+* Linear
+* Notion
+* Framer
+* Raycast
+
+Focus on:
+
+* Professional presentation
+* Product-first storytelling
+* Strong hierarchy
+* Trust and credibility
+
+Avoid overly artistic portfolio styles.
+
+---
+
+## Typography Rules
+
+Current typography still feels slightly oversized.
+
+Reduce large headlines where necessary.
+
+Prioritize:
+
+* Readability
+* Hierarchy
+* Balance
+
+Use:
+
+* Large headlines only where they add impact
+* Medium headlines for most sections
+* Comfortable line lengths
+* Better paragraph spacing
+
+The content should feel easy to consume.
+
+---
+
+## Product-First Design
+
+Show actual work.
+
+Use:
+
+* Dashboard previews
+* Admin panels
+* Mobile app screens
+* Website screenshots
+* Product mockups
+
+A visitor should understand within 5 seconds what WebAksh builds.
+
+---
+
+## More Professional Layouts
+
+Reduce excessive empty space.
+
+Balance:
+
+* Headline
+* Supporting text
+* Visuals
+* CTA
+
+Every section should communicate value.
+
+Avoid sections that are mostly typography.
+
+---
+
+## Refine the Hero
+
+Hero should contain:
+
+### Clear Value Proposition
+
+What WebAksh does.
+
+### Supporting Text
+
+Who we help.
+
+### CTA
+
+Start a Project
+
+View Case Studies
+
+### Product Preview
+
+Real project showcase.
+
+The hero should feel like a software company homepage.
+
+---
+
+## Trust & Credibility
+
+Add stronger trust signals:
+
+* Technologies used
+* Industries served
+* Development process
+* Support process
+* Project outcomes
+
+Avoid fake statistics.
+
+Use real credibility.
+
+---
+
+## Services
+
+Focus on business outcomes.
+
+Instead of:
+
+"We build websites"
+
+Use:
+
+"We create high-performance websites that help businesses attract customers and generate leads."
+
+Every service should explain:
+
+* Who it helps
+* What problem it solves
+* Expected outcome
+
+---
+
+## Case Studies
+
+Case studies should feel premium.
+
+Include:
+
+* Client challenge
+* Research
+* Design process
+* Technology stack
+* Screenshots
+* Results
+
+Use large visuals.
+
+Show real work.
+
+---
+
+## Motion Design
+
+Keep animations subtle.
+
+Use:
+
+* Smooth fade-ins
+* Text reveals
+* Hover states
+* Micro interactions
+
+Avoid flashy animations.
+
+Avoid animations that exist only for decoration.
+
+Every animation should support usability.
+
+---
+
+## Visual Polish
+
+Improve:
+
+* Consistent spacing
+* Consistent margins
+* Card alignment
+* Visual rhythm
+* Section balance
+
+Everything should feel handcrafted.
+
+---
+
+## Final Objective
+
+Build the website as if it were created by:
+
+* A senior UI/UX designer
+* A senior frontend engineer
+* A professional software agency
+
+The website should feel premium, trustworthy, modern, and conversion-focused.
+
+Quality over effects.
+
+Clarity over decoration.
+
+Professionalism over experimentation.
