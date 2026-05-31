@@ -1,0 +1,283 @@
+# Critical Design Direction Change
+
+The current website looks more like a designer portfolio or typography experiment than a premium software agency.
+
+The UI is visually impressive, but it does not feel like a real agency website built for businesses.
+
+I want a complete refinement pass.
+
+Do NOT redesign everything from scratch.
+
+Keep the dark premium aesthetic, editorial design language, and modern feel.
+
+However, improve the balance between design and business communication.
+
+---
+
+## Biggest Problem
+
+The current typography is too large.
+
+Examples:
+
+* Hero headlines dominate the screen
+* Contact headline dominates the section
+* Large text creates too much empty space
+* Content feels secondary
+
+This makes the website feel like a design showcase rather than a company website.
+
+Reduce oversized typography by approximately 25–35%.
+
+Maintain strong typography but improve hierarchy and readability.
+
+---
+
+## Hero Section Redesign
+
+Current hero feels:
+
+"Big text + empty space"
+
+I want:
+
+"Premium agency + credibility + conversion"
+
+### New Hero Layout
+
+Left Side:
+
+* Strong headline
+* Clear value proposition
+* Short supporting text
+* CTA buttons
+
+Example structure:
+
+Websites, Apps & Digital Systems
+Built to Help Businesses Grow
+
+We design and develop high-performance digital products that help startups and businesses attract customers, increase efficiency, and scale confidently.
+
+Buttons:
+
+* Start a Project
+* View Case Studies
+
+---
+
+Right Side:
+
+Display a premium featured project showcase.
+
+Possible options:
+
+* Laptop mockup
+* Dashboard preview
+* Mobile app preview
+* Project screenshot
+
+This area should immediately show visitors what WebAksh actually builds.
+
+---
+
+## Show Proof Earlier
+
+Move credibility higher on the page.
+
+Add immediately after hero:
+
+### Trusted Technologies
+
+React
+Node.js
+MongoDB
+Next.js
+AWS
+Firebase
+
+Display as clean premium badges.
+
+---
+
+### Featured Work Preview
+
+Show actual projects directly on homepage.
+
+Not hidden inside modals.
+
+Display:
+
+* OptiClair
+* CREDA
+* Bajaj Groups
+* HPCL
+
+Each project should show:
+
+* Screenshot
+* Industry
+* Technologies
+* Brief outcome
+
+This builds trust immediately.
+
+---
+
+## Services Section Refinement
+
+Keep the accordion concept.
+
+But improve information density.
+
+Each service should show:
+
+* What it includes
+* Who it helps
+* Expected outcomes
+
+Focus on business value.
+
+Not just service names.
+
+---
+
+## Case Study Upgrade
+
+The current project section should feel like a professional agency portfolio.
+
+Each project detail page should include:
+
+### Overview
+
+### Client Challenge
+
+### Research & Planning
+
+### Solution Delivered
+
+### Technology Stack
+
+### Key Features
+
+### Screenshots
+
+### Business Results
+
+### Why This Solution Worked
+
+Make projects feel like real agency work.
+
+---
+
+## Improve Trust & Credibility
+
+Add:
+
+### Why Clients Choose WebAksh
+
+Examples:
+
+* Modern Technology Stack
+* Fast Communication
+* Mobile-First Development
+* SEO-Friendly Solutions
+* Transparent Process
+* Long-Term Support
+
+---
+
+### Development Process
+
+Discovery
+
+Strategy
+
+Design
+
+Development
+
+Testing
+
+Launch
+
+Support
+
+Display this professionally.
+
+---
+
+## Improve Contact Section
+
+Current typography is too large.
+
+Make it feel premium and approachable.
+
+Instead of giant headlines taking over the screen:
+
+Use balanced typography.
+
+Include:
+
+* Contact form
+* WhatsApp
+* Email
+* Phone
+* Project inquiry CTA
+
+Focus on conversion.
+
+---
+
+## Visual Design Direction
+
+Reference:
+
+* Linear
+* Stripe
+* Vercel
+* Framer
+* Refokus
+
+Not typography showcase websites.
+
+Not designer portfolio websites.
+
+Not experimental concept designs.
+
+---
+
+## What To Avoid
+
+Avoid:
+
+* Extremely large typography
+* Huge empty spaces
+* Typography dominating every section
+* Oversized headings
+* Portfolio-experiment layouts
+* Style over usability
+
+---
+
+## Final Goal
+
+When a business owner visits the website they should think:
+
+"These people build serious software products and understand business."
+
+Not:
+
+"This is a cool design experiment."
+
+The website should feel:
+
+* Premium
+* Professional
+* Trustworthy
+* Modern
+* High-end
+* Agency-focused
+* Conversion-focused
+
+Design quality should remain excellent, but business communication and credibility should be significantly improved.
