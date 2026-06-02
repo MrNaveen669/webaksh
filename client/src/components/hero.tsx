@@ -72,7 +72,8 @@ export default function Hero() {
               initial="hidden"
               animate="show"
               custom={0.15}
-              className="text-display text-white mb-4"
+              className="text-display text-white mb-4 font-light"
+              style={{ fontWeight: 300 }}
             >
               Websites, Apps &<br />
               Digital Systems
