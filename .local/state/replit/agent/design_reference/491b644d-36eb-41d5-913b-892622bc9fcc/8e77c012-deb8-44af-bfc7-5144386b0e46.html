@@ -1,0 +1,1506 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Digital Agency for Small Businesses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        },
+                        'violet': {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        'teal': {
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                        },
+                        'pink': {
+                            500: '#f472b6',
+                            600: '#ec4899',
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #f472b6);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .loader-hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.9);
+            transition: all 0.5s ease-out;
+        }
+
+        .content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="font-inter antialiased">
+    <!-- Animated Loader -->
+    <div id="loader" class="fixed inset-0 z-50 gradient-bg flex items-center justify-center">
+        <div class="text-center relative">
+            <!-- Particles -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="particle w-2 h-2 animate-bounce-slow" style="top: 20%; left: 20%; animation-delay: 0s;"></div>
+                <div class="particle w-3 h-3 animate-pulse-slow" style="top: 60%; right: 25%; animation-delay: 1s;"></div>
+                <div class="particle w-1 h-1 animate-bounce-slow" style="bottom: 30%; left: 60%; animation-delay: 2s;"></div>
+                <div class="particle w-2 h-2 animate-pulse-slow" style="top: 40%; right: 40%; animation-delay: 0.5s;"></div>
+            </div>
+            
+            <!-- Spinning Logo -->
+            <div class="mb-8">
+                <div class="w-16 h-16 mx-auto border-4 border-white border-t-transparent rounded-full animate-spin-slow"></div>
+            </div>
+            
+            <!-- Agency Name -->
+            <h1 class="text-6xl font-black text-white mb-4 animate-pulse-slow">Nexora</h1>
+            <p class="text-xl text-white/80 animate-float">Digital Agency</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="content-hidden">
+        <!-- Navigation -->
+        <!-- @COMPONENT: Navbar [sticky navigation with logo and menu items] -->
+        <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-40 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex-shrink-0">
+                        <h2 class="text-2xl font-black text-gradient">Nexora</h2>
+                    </div>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#home" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                            <a href="#services" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                            <a href="#projects" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                            <a href="#about" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                            <a href="#contact" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobileMenuBtn" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Home</a>
+                    <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Services</a>
+                    <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Projects</a>
+                    <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">About</a>
+                    <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Contact</a>
+                </div>
+            </div>
+        </nav>
+        <!-- @END_COMPONENT: Navbar -->
+
+        <!-- Hero Section -->
+        <!-- @COMPONENT: HeroSection [main landing area with background image and CTAs] -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <!-- Background Image -->
+            <!-- A dynamic team of digital professionals collaborating in a modern office with laptops and digital tools -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080" 
+                     alt="Digital agency team collaborating" 
+                     class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-r from-primary-600/90 via-violet-600/80 to-teal-500/90"></div>
+            </div>
+            
+            <!-- Content -->
+            <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
+                    We Help Small Businesses 
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
+                        Go Big Online
+                    </span>
+                </h1>
+                
+                <p class="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Website, Mobile Apps, Digital Growth & Beyond.
+                </p>
+                
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="bg-white text-primary-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Explore Services
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-primary-600 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-comments mr-2"></i>
+                        Get in Touch
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: HeroSection -->
+
+        <!-- Services Section -->
+        <!-- @COMPONENT: ServicesSection [showcase of main service offerings] -->
+        <section id="services" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-black text-gradient mb-6">Our Services</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We offer comprehensive digital solutions to transform your business and accelerate your online growth.
+                    </p>
+                </div>
+                
+                <!-- @MAP: services.map(service => ( -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Website Development -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl card-hover border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-primary-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-code text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Website Development</h3>
+                        <p class="text-gray-600 mb-6">Custom, responsive websites that convert visitors into customers with modern design and optimal performance.</p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Responsive Design</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>SEO Optimized</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Fast Loading</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Mobile App Development -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl card-hover border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-primary-500 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Android Apps</h3>
+                        <p class="text-gray-600 mb-6">Native Android applications that engage users and drive business growth with intuitive user experiences.</p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Native Performance</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Play Store Ready</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>User-Centric Design</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Digital Marketing -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl card-hover border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Digital Marketing</h3>
+                        <p class="text-gray-600 mb-6">Strategic digital marketing campaigns that increase your online visibility and drive qualified leads.</p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>SEO & SEM</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Content Strategy</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Analytics & Reporting</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Branding -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl card-hover border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-violet-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-palette text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Branding</h3>
+                        <p class="text-gray-600 mb-6">Complete brand identity solutions that make your business memorable and distinguish you from competitors.</p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Logo Design</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Brand Guidelines</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Visual Identity</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Social Media Management -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl card-hover border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-primary-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-share-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Social Media</h3>
+                        <p class="text-gray-600 mb-6">Comprehensive social media management that builds communities and drives engagement across all platforms.</p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Content Creation</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Community Management</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Growth Strategy</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Consultation -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl card-hover border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-lightbulb text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Strategy Consulting</h3>
+                        <p class="text-gray-600 mb-6">Expert guidance and strategic planning to help you make informed decisions about your digital transformation.</p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Digital Strategy</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Market Analysis</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Growth Planning</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </section>
+        <!-- @END_COMPONENT: ServicesSection -->
+
+        <!-- Projects Section -->
+        <!-- @COMPONENT: ProjectsSection [portfolio showcase with project cards] -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-black text-gradient mb-6">Our Work</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Take a look at some of our recent projects and see how we've helped businesses transform their digital presence.
+                    </p>
+                </div>
+                
+                <!-- @MAP: projects.map(project => ( -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl card-hover">
+                        <!-- Modern e-commerce website displaying fashion products on multiple devices -->
+                        <img src="https://pixabay.com/get/g340c90dae07d451657ffb0a453279785f359c21a0d36a850680b68b1ac241c3deb268dcb708275e306eadc4d480e2eb44ec4cc219aa3a518cff690ae78132c69_1280.jpg" 
+                             alt="E-commerce website project" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Fashion E-commerce</h3>
+                            <p class="text-white/80 text-sm">Complete online store with payment integration</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="px-2 py-1 bg-primary-500 text-white text-xs rounded-full">Website</span>
+                                <span class="px-2 py-1 bg-violet-500 text-white text-xs rounded-full">E-commerce</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl card-hover">
+                        <!-- Mobile app interface showing fitness tracking features on smartphone screen -->
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                             alt="Mobile fitness app project" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Fitness Tracking App</h3>
+                            <p class="text-white/80 text-sm">Android app with workout plans and progress tracking</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="px-2 py-1 bg-teal-500 text-white text-xs rounded-full">Mobile App</span>
+                                <span class="px-2 py-1 bg-pink-500 text-white text-xs rounded-full">Health</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl card-hover">
+                        <!-- Restaurant website with elegant food photography and menu display -->
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                             alt="Restaurant website project" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Restaurant Website</h3>
+                            <p class="text-white/80 text-sm">Modern dining website with online reservations</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="px-2 py-1 bg-primary-500 text-white text-xs rounded-full">Website</span>
+                                <span class="px-2 py-1 bg-violet-500 text-white text-xs rounded-full">Restaurant</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl card-hover">
+                        <!-- Corporate branding showcase with logo design and brand materials -->
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                             alt="Corporate branding project" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Corporate Branding</h3>
+                            <p class="text-white/80 text-sm">Complete brand identity for tech startup</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="px-2 py-1 bg-pink-500 text-white text-xs rounded-full">Branding</span>
+                                <span class="px-2 py-1 bg-teal-500 text-white text-xs rounded-full">Startup</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl card-hover">
+                        <!-- Social media marketing campaign with engaging graphics and analytics -->
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                             alt="Social media marketing project" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Social Media Campaign</h3>
+                            <p class="text-white/80 text-sm">Multi-platform campaign driving 300% engagement</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="px-2 py-1 bg-violet-500 text-white text-xs rounded-full">Social Media</span>
+                                <span class="px-2 py-1 bg-primary-500 text-white text-xs rounded-full">Campaign</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl card-hover">
+                        <!-- Digital marketing analytics dashboard showing business growth metrics -->
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                             alt="Digital marketing analytics project" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Growth Analytics</h3>
+                            <p class="text-white/80 text-sm">Data-driven strategy increasing ROI by 250%</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="px-2 py-1 bg-teal-500 text-white text-xs rounded-full">Analytics</span>
+                                <span class="px-2 py-1 bg-pink-500 text-white text-xs rounded-full">Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+                
+                <!-- View All Projects Button -->
+                <div class="text-center mt-12">
+                    <button class="bg-gradient-to-r from-primary-500 to-violet-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-primary-600 hover:to-violet-600 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                        View All Projects
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: ProjectsSection -->
+
+        <!-- About Section -->
+        <!-- @COMPONENT: AboutSection [team introduction and company story] -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-black text-gradient mb-6">Meet Our Team</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We're a passionate duo of digital experts dedicated to helping small businesses thrive in the digital world.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Team Content -->
+                    <div class="order-2 lg:order-1">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Founded by two digital natives with a shared vision of democratizing quality digital services for small businesses. 
+                            We believe every business deserves access to professional-grade digital solutions, regardless of size or budget.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-8">
+                            With combined experience of over 10 years in web development, mobile apps, and digital marketing, 
+                            we've helped dozens of startups and small businesses establish their online presence and grow their customer base.
+                        </p>
+                        
+                        <!-- Team Stats -->
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-6 bg-white rounded-xl shadow-md">
+                                <div class="text-3xl font-black text-gradient mb-2">50+</div>
+                                <div class="text-gray-600">Projects Completed</div>
+                            </div>
+                            <div class="text-center p-6 bg-white rounded-xl shadow-md">
+                                <div class="text-3xl font-black text-gradient mb-2">98%</div>
+                                <div class="text-gray-600">Client Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Image -->
+                    <div class="order-1 lg:order-2">
+                        <!-- Two young professionals working together on laptops in a modern co-working space -->
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                             alt="Nexora team working together" 
+                             class="rounded-2xl shadow-2xl w-full" />
+                    </div>
+                </div>
+                
+                <!-- Team Members -->
+                <div class="mt-20">
+                    <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">The Nexora Duo</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <!-- Team Member 1 -->
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <!-- Professional headshot of a confident young developer with modern styling -->
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" 
+                                     alt="Co-founder Alex" 
+                                     class="w-32 h-32 rounded-full mx-auto object-cover shadow-xl" />
+                                <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-primary-500 to-violet-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-code text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2" data-mock="true">Alex Chen</h4>
+                            <p class="text-violet-600 font-semibold mb-3">Co-Founder & Lead Developer</p>
+                            <p class="text-gray-600 text-sm">Full-stack developer specializing in modern web technologies and mobile app development. 5+ years experience building scalable digital solutions.</p>
+                        </div>
+                        
+                        <!-- Team Member 2 -->
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <!-- Professional headshot of a creative digital marketing specialist -->
+                                <img src="https://pixabay.com/get/gc6c4de4a1a2ba30feafa9a36dd10949ea83e6cb1ceb2ceeb8b8470df79416fc3cf14ebebadaa48ab065865312dc25562adf674ead75b33e0d96d9756742faeda_1280.jpg" 
+                                     alt="Co-founder Sarah" 
+                                     class="w-32 h-32 rounded-full mx-auto object-cover shadow-xl" />
+                                <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-pink-500 to-teal-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2" data-mock="true">Sarah Martinez</h4>
+                            <p class="text-pink-600 font-semibold mb-3">Co-Founder & Digital Strategist</p>
+                            <p class="text-gray-600 text-sm">Digital marketing expert with expertise in branding, social media, and growth strategies. Passionate about helping businesses find their unique voice online.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: AboutSection -->
+
+        <!-- Contact Section -->
+        <!-- @COMPONENT: ContactSection [contact form and company information] -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-black text-gradient mb-6">Get In Touch</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Ready to take your business to the next level? Let's discuss your project and create something amazing together.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" placeholder="John" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" placeholder="Doe" />
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" placeholder="john@example.com" />
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                                <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" placeholder="+1 (555) 123-4567" />
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Service Interested In</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                                    <option>Select a service</option>
+                                    <option>Website Development</option>
+                                    <option>Mobile App Development</option>
+                                    <option>Digital Marketing</option>
+                                    <option>Branding</option>
+                                    <option>Social Media Management</option>
+                                    <option>Strategy Consulting</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Project Details</label>
+                                <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" placeholder="Tell us about your project..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-gradient-to-r from-primary-500 to-violet-500 text-white py-4 rounded-lg font-bold text-lg hover:from-primary-600 hover:to-violet-600 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                                Send Message
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6">Let's Connect</h3>
+                            <p class="text-lg text-gray-600 mb-8">
+                                We'd love to hear about your project and discuss how we can help your business grow online. 
+                                Reach out through any of the channels below.
+                            </p>
+                        </div>
+                        
+                        <!-- Contact Methods -->
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-primary-500 to-violet-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Email</h4>
+                                    <p class="text-gray-600" data-mock="true">hello@nexora.agency</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-teal-500 to-primary-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Phone</h4>
+                                    <p class="text-gray-600" data-mock="true">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-violet-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Location</h4>
+                                    <p class="text-gray-600" data-mock="true">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="pt-8">
+                            <h4 class="font-semibold text-gray-900 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-primary-500 text-white rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-violet-500 text-white rounded-lg flex items-center justify-center hover:bg-violet-600 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-pink-500 text-white rounded-lg flex items-center justify-center hover:bg-pink-600 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-teal-500 text-white rounded-lg flex items-center justify-center hover:bg-teal-600 transition-colors">
+                                    <i class="fab fa-dribbble"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: ContactSection -->
+
+        <!-- Footer -->
+        <!-- @COMPONENT: Footer [site footer with links and branding] -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Company Info -->
+                    <div class="col-span-1 md:col-span-2">
+                        <h3 class="text-3xl font-black text-gradient mb-4">Nexora</h3>
+                        <p class="text-gray-400 mb-6 max-w-md">
+                            Empowering small businesses to thrive in the digital world through innovative web solutions, 
+                            mobile apps, and strategic digital marketing.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-dribbble text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                            <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Services -->
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Services</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mobile Apps</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Digital Marketing</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Branding</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Social Media</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Copyright -->
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                    <p class="text-gray-400">
+                        © 2024 Nexora Digital Agency. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- @END_COMPONENT: Footer -->
+    </div>
+
+    <script>
+        (function() {
+            // Loader functionality
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const loader = document.getElementById('loader');
+                    const mainContent = document.getElementById('mainContent');
+                    
+                    loader.classList.add('loader-hidden');
+                    mainContent.classList.remove('content-hidden');
+                    mainContent.classList.add('content-visible');
+                    
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 2000);
+            });
+
+            // Mobile menu functionality
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Navbar background on scroll
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 100) {
+                    nav.classList.add('bg-white/95');
+                    nav.classList.remove('bg-white/90');
+                } else {
+                    nav.classList.add('bg-white/90');
+                    nav.classList.remove('bg-white/95');
+                }
+            });
+
+            // Add some interactive hover effects
+            document.querySelectorAll('.card-hover').forEach(function(card) {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                    this.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Digital Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'gradient': 'gradient 3s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 3s ease infinite;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            opacity: 0.6;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .loader-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 400% 400%;
+            animation: gradient 6s ease infinite;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            background-size: 200% 200%;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gradient:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body class="font-inter antialiased">
+    
+    <!-- @COMPONENT: Loader [Full-screen animated loader] -->
+    <div id="loader" class="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center z-50 transition-opacity duration-1000">
+        <div class="loader-particles">
+            <div class="particle w-2 h-2" style="top: 20%; left: 20%; animation-delay: 0s;"></div>
+            <div class="particle w-1 h-1" style="top: 80%; left: 80%; animation-delay: 1s;"></div>
+            <div class="particle w-3 h-3" style="top: 60%; left: 10%; animation-delay: 2s;"></div>
+            <div class="particle w-1 h-1" style="top: 30%; left: 70%; animation-delay: 1.5s;"></div>
+            <div class="particle w-2 h-2" style="top: 70%; left: 30%; animation-delay: 0.5s;"></div>
+        </div>
+        <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 mb-6">
+                <div class="w-12 h-12 border-4 border-transparent border-t-blue-400 border-r-purple-400 rounded-full animate-spin"></div>
+            </div>
+            <h1 class="text-6xl font-black gradient-text mb-2" data-mock="true">Nexora</h1>
+            <p class="text-gray-300 text-lg font-medium" data-mock="true">Digital Agency</p>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Loader -->
+    
+    <!-- @COMPONENT: Navigation [Responsive navbar with blur backdrop] -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-40 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-black gradient-text" data-mock="true">Nexora</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors" data-mock="true">Home</a>
+                        <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition-colors" data-mock="true">Services</a>
+                        <a href="#projects" class="text-gray-700 hover:text-blue-600 font-medium transition-colors" data-mock="true">Projects</a>
+                        <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition-colors" data-mock="true">About</a>
+                        <a href="#contact" class="btn-gradient text-white px-6 py-2 rounded-full font-medium" data-mock="true">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-blue-600" data-event="click:toggleMobileMenu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+    
+    <!-- @COMPONENT: Hero [Full-width hero section with gradient background] -->
+    <section id="home" class="relative min-h-screen flex items-center hero-gradient overflow-hidden">
+        <div class="absolute inset-0">
+            <!-- Modern office workspace with digital screens and technology -->
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080" 
+                 alt="Modern office workspace with digital technology" 
+                 class="w-full h-full object-cover opacity-20"
+                 data-mock-image="true" />
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight" data-mock="true">
+                We Help Small<br>
+                <span class="gradient-text">Businesses Go Big</span><br>
+                Online
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-light" data-mock="true">
+                Website, Mobile Apps, Digital Growth & Beyond.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-gradient text-white px-8 py-4 rounded-full font-semibold text-lg" data-event="click:exploreServices" data-mock="true">
+                    <i class="fas fa-rocket mr-2"></i>Explore Services
+                </button>
+                <button class="bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/30 transition-all" data-event="click:getInTouch" data-mock="true">
+                    <i class="fas fa-paper-plane mr-2"></i>Get in Touch
+                </button>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white/70 rounded-full mt-2 animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero -->
+    
+    <!-- @COMPONENT: Services [Service showcase with cards] -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4" data-mock="true">
+                    Our <span class="gradient-text">Services</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-mock="true">
+                    We provide comprehensive digital solutions to help your business thrive in the modern marketplace
+                </p>
+            </div>
+            
+            <!-- @MAP: services.map(service => ( -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4" data-mock="true">Website Development</h3>
+                    <p class="text-gray-600 mb-6" data-mock="true">Custom, responsive websites that convert visitors into customers with modern design and optimized performance.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Responsive Design</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>SEO Optimized</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Fast Loading</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4" data-mock="true">Android App Development</h3>
+                    <p class="text-gray-600 mb-6" data-mock="true">Native Android applications that provide seamless user experiences and drive engagement.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Native Performance</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Material Design</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Play Store Ready</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4" data-mock="true">Digital Marketing</h3>
+                    <p class="text-gray-600 mb-6" data-mock="true">Data-driven marketing strategies that increase your online visibility and drive qualified leads.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Google Ads & SEO</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Analytics & Reporting</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Conversion Optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4" data-mock="true">Branding</h3>
+                    <p class="text-gray-600 mb-6" data-mock="true">Comprehensive brand identity that reflects your values and resonates with your target audience.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Logo Design</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Brand Guidelines</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Marketing Materials</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-share-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4" data-mock="true">Social Media Management</h3>
+                    <p class="text-gray-600 mb-6" data-mock="true">Strategic social media presence that builds community and drives meaningful engagement with your brand.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Content Strategy</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Community Management</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Performance Analytics</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4" data-mock="true">Growth Strategy</h3>
+                    <p class="text-gray-600 mb-6" data-mock="true">Comprehensive growth plans that align with your business goals and market opportunities.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Market Analysis</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Competitive Research</li>
+                        <li class="flex items-center" data-mock="true"><i class="fas fa-check text-green-500 mr-2"></i>Growth Roadmap</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Services -->
+    
+    <!-- @COMPONENT: Projects [Portfolio showcase grid] -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4" data-mock="true">
+                    Featured <span class="gradient-text">Projects</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-mock="true">
+                    Discover how we've helped businesses transform their digital presence and achieve remarkable growth
+                </p>
+            </div>
+            
+            <!-- @MAP: projects.map(project => ( -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <!-- E-commerce website showcasing modern product displays -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="E-commerce website on laptop screen" 
+                         class="w-full h-48 object-cover"
+                         data-mock-image="true" />
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full" data-mock="true">E-commerce</span>
+                            <i class="fas fa-external-link-alt text-gray-400 hover:text-blue-600 cursor-pointer"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-mock="true">Fashion Boutique Store</h3>
+                        <p class="text-gray-600 mb-4" data-mock="true">Complete e-commerce solution with inventory management and payment integration</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span data-mock="true">Completed in 6 weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <!-- Mobile app interface showing modern design -->
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Mobile application interface design" 
+                         class="w-full h-48 object-cover"
+                         data-mock-image="true" />
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full" data-mock="true">Mobile App</span>
+                            <i class="fas fa-external-link-alt text-gray-400 hover:text-blue-600 cursor-pointer"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-mock="true">Fitness Tracking App</h3>
+                        <p class="text-gray-600 mb-4" data-mock="true">Android fitness app with workout tracking and social features</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span data-mock="true">Completed in 8 weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <!-- Restaurant website with elegant design -->
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Restaurant website displayed on tablet" 
+                         class="w-full h-48 object-cover"
+                         data-mock-image="true" />
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full" data-mock="true">Website</span>
+                            <i class="fas fa-external-link-alt text-gray-400 hover:text-blue-600 cursor-pointer"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-mock="true">Fine Dining Restaurant</h3>
+                        <p class="text-gray-600 mb-4" data-mock="true">Elegant restaurant website with online reservations and menu showcase</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span data-mock="true">Completed in 4 weeks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+            
+            <div class="text-center mt-12">
+                <button class="btn-gradient text-white px-8 py-4 rounded-full font-semibold text-lg" data-event="click:viewAllProjects" data-mock="true">
+                    <i class="fas fa-eye mr-2"></i>View All Projects
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Projects -->
+    
+    <!-- @COMPONENT: About [Team section highlighting 2-member team] -->
+    <section id="about" class="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4" data-mock="true">
+                    Meet Our <span class="gradient-text">Team</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-mock="true">
+                    Two passionate developers dedicated to bringing your digital vision to life with creativity and technical excellence
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <!-- Professional headshot of a male developer -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" 
+                         alt="Professional headshot of male team member" 
+                         class="w-48 h-48 rounded-full mx-auto mb-6 object-cover shadow-xl"
+                         data-mock-image="true" />
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2" data-mock="true" data-bind="team.member1.name">Alex Rodriguez</h3>
+                    <p class="text-lg text-gray-600 mb-4" data-mock="true" data-bind="team.member1.role">Full-Stack Developer & Co-Founder</p>
+                    <p class="text-gray-600 mb-6" data-mock="true" data-bind="team.member1.bio">
+                        Specializes in modern web technologies and mobile app development. 5+ years of experience creating scalable digital solutions.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors" data-mock="true">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors" data-mock="true">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors" data-mock="true">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <!-- Professional headshot of a female developer -->
+                    <img src="https://pixabay.com/get/g557cedf3e73503eee072cb551c54ef14300a0dbaa459ffb7296c8b41b3a69e12fa399483fc1fb8937721fadbe6aa1063811ac8c3ea9e18a393ce8e533caf1d3d_1280.jpg" 
+                         alt="Professional headshot of female team member" 
+                         class="w-48 h-48 rounded-full mx-auto mb-6 object-cover shadow-xl"
+                         data-mock-image="true" />
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2" data-mock="true" data-bind="team.member2.name">Sarah Chen</h3>
+                    <p class="text-lg text-gray-600 mb-4" data-mock="true" data-bind="team.member2.role">UI/UX Designer & Co-Founder</p>
+                    <p class="text-gray-600 mb-6" data-mock="true" data-bind="team.member2.bio">
+                        Expert in user experience design and digital marketing strategies. Passionate about creating intuitive and beautiful interfaces.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors" data-mock="true">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors" data-mock="true">
+                            <i class="fab fa-dribbble text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors" data-mock="true">
+                            <i class="fab fa-behance text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-2xl p-8 shadow-xl">
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl font-black gradient-text mb-2" data-mock="true">50+</div>
+                        <p class="text-gray-600 font-medium" data-mock="true">Projects Completed</p>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-black gradient-text mb-2" data-mock="true">100%</div>
+                        <p class="text-gray-600 font-medium" data-mock="true">Client Satisfaction</p>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-black gradient-text mb-2" data-mock="true">3+</div>
+                        <p class="text-gray-600 font-medium" data-mock="true">Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About -->
+    
+    <!-- @COMPONENT: Contact [Contact form and information] -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4" data-mock="true">
+                    Let's <span class="gradient-text">Connect</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-mock="true">
+                    Ready to transform your digital presence? Let's discuss how we can help your business grow online.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2" data-mock="true">Email Us</h3>
+                                <p class="text-gray-300" data-mock="true">hello@nexora.agency</p>
+                                <p class="text-gray-400 text-sm" data-mock="true">We'll respond within 24 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-teal-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2" data-mock="true">Call Us</h3>
+                                <p class="text-gray-300" data-mock="true">+1 (555) 123-4567</p>
+                                <p class="text-gray-400 text-sm" data-mock="true">Mon-Fri 9AM-6PM EST</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-calendar text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2" data-mock="true">Schedule a Call</h3>
+                                <p class="text-gray-300" data-mock="true">Book a free consultation</p>
+                                <p class="text-gray-400 text-sm" data-mock="true">30-minute strategy session</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-xl font-semibold text-white mb-4" data-mock="true">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all" data-mock="true">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-400 transition-all" data-mock="true">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-pink-600 transition-all" data-mock="true">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-all" data-mock="true">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-2xl p-8">
+                    <form class="space-y-6" data-event="submit:handleContactForm">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2" data-mock="true">First Name</label>
+                                <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="John" data-mock="true">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2" data-mock="true">Last Name</label>
+                                <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Doe" data-mock="true">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2" data-mock="true">Email</label>
+                            <input type="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="john@example.com" data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2" data-mock="true">Project Type</label>
+                            <select class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" data-mock="true">
+                                <option>Select a service</option>
+                                <option>Website Development</option>
+                                <option>Mobile App Development</option>
+                                <option>Digital Marketing</option>
+                                <option>Branding</option>
+                                <option>Social Media Management</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2" data-mock="true">Budget Range</label>
+                            <select class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" data-mock="true">
+                                <option>Select budget range</option>
+                                <option>$5,000 - $10,000</option>
+                                <option>$10,000 - $25,000</option>
+                                <option>$25,000 - $50,000</option>
+                                <option>$50,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2" data-mock="true">Project Details</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" placeholder="Tell us about your project..." data-mock="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-gradient text-white py-4 rounded-xl font-semibold text-lg" data-mock="true">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact -->
+    
+    <!-- @COMPONENT: Footer [Simple footer with branding] -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-3xl font-black gradient-text" data-mock="true">Nexora</h3>
+                    <p class="text-gray-400 mt-2" data-mock="true">Digital Agency</p>
+                </div>
+                <div class="text-gray-400 text-center md:text-right">
+                    <p data-mock="true">&copy; 2024 Nexora. All rights reserved.</p>
+                    <p class="text-sm mt-1" data-mock="true">Made with ❤️ for small businesses</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+    
+    <script>
+        (function() {
+            // Loader functionality
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const loader = document.getElementById('loader');
+                    loader.style.opacity = '0';
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 1000);
+                }, 2000);
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe sections for fade-in effect
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+            
+            // Mobile menu toggle (placeholder)
+            const mobileMenuButton = document.querySelector('[data-event="click:toggleMobileMenu"]');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    // Mobile menu toggle functionality would go here
+                    console.log('Mobile menu toggled');
+                });
+            }
+            
+            // Form submission (placeholder)
+            const contactForm = document.querySelector('[data-event="submit:handleContactForm"]');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Form submission logic would go here
+                    console.log('Contact form submitted');
+                    alert('Thank you for your message! We\'ll get back to you soon.');
+                });
+            }
+            
+            // Button click handlers (placeholders)
+            document.querySelectorAll('[data-event^="click:"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const action = this.getAttribute('data-event').split(':')[1];
+                    console.log(`Action triggered: ${action}`);
+                    
+                    switch(action) {
+                        case 'exploreServices':
+                            document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
+                            break;
+                        case 'getInTouch':
+                            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                            break;
+                        case 'viewAllProjects':
+                            // Navigate to projects page or show more projects
+                            alert('View All Projects functionality would be implemented here');
+                            break;
+                    }
+                });
+            });
+            
+            // Add dynamic particles to loader
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 4 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                
+                const loaderParticles = document.querySelector('.loader-particles');
+                if (loaderParticles) {
+                    loaderParticles.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        particle.remove();
+                    }, 4000);
+                }
+            }
+            
+            // Create particles periodically while loader is visible
+            const particleInterval = setInterval(() => {
+                const loader = document.getElementById('loader');
+                if (loader && loader.style.display !== 'none') {
+                    createParticle();
+                } else {
+                    clearInterval(particleInterval);
+                }
+            }, 500);
+            
+        })();
+    </script>
+    
+</body>
+</html>
